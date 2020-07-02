@@ -9,10 +9,17 @@
 
 <ion-content>
   <ion-toolbar>
-    <ion-title size="small"><b>{{ data_establishment.name_establecimiento }}</b></ion-title>
+    <ion-title class="title" color="light" size="small"><b>{{ data_establishment.name_establecimiento }}</b></ion-title>
   </ion-toolbar>
 
-  <ion-list *ngIf="products">
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openCart()" #cart>
+      <div class="cart-length">{{ cartItemCount | async }}</div>
+      <ion-icon name="cart" class="cart-icon"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+  <!--<ion-list *ngIf="products">
     <ion-item *ngFor="let product of products">
       <ion-label>
         <h2><b>{{ product.name_product }}</b></h2>
@@ -22,5 +29,25 @@
       </ion-label>
     </ion-item>
   </ion-list>
+-->
 
+  <ion-list>
+    <ion-item *ngFor="let p of products2">
+      <ion-label>
+        <h2><b>{{ p.name }}</b></h2>
+      </ion-label>
+      <ion-row>
+        <ion-col size ="8">
+          <ion-label>
+            <small color="danger">{{ p.price | currency: "COP":"symbol" }}</small>
+          </ion-label>
+        </ion-col>
+        <ion-col size="4" class="ion-text-right">
+          <ion-button fill="clear" (click)="addToCart(p)">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
 </ion-content>
