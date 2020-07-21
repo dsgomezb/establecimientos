@@ -65,6 +65,7 @@ export class LoginPage implements OnInit {
       this.toast.presentToast(i18nMessages.General["errors"]["username_and_password"], "error-toast", 3000); //Ejemplo de como usar el translate desde typescript (se centraliza todo en el es.json)
     }else{
       this.request.postData('api/signin',this.userData, {}).then(data => {
+        console.log(data);
         if(data.code == 1 || data.code == 2){
           this.toast.presentToast(data.error, "error-toast", 3000);
         }else if(data.code == 0){
@@ -93,4 +94,8 @@ export class LoginPage implements OnInit {
     });
   }
 
+    // Función para dirigirse a la pagina de registro
+    goRegister() {
+      this.navCtrl.navigateForward('/register-client');
+    }
 }

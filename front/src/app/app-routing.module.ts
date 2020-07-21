@@ -34,7 +34,11 @@ const routes: Routes = [
   {
     path: 'cart-modal',
     loadChildren: () => import('./pages/cart-modal/cart-modal.module').then( m => m.CartModalPageModule)
+  },  {
+    path: 'register-client',
+    loadChildren: () => import('./pages/register-client/register-client.module').then( m => m.RegisterClientPageModule)
   }
+
 
 
 ];

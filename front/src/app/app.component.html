@@ -22,6 +22,11 @@
               <ion-icon slot="start" name="home"></ion-icon>
               <ion-label>{{ "menu.address" | translate }}</ion-label>
             </ion-item>
+          <!--Carrito de compras-->
+          <ion-item  routerLink="{{ 'routes.address' | translate }}" (click)="openCart()" #cart>
+            <ion-icon slot="start" name="cart"></ion-icon>
+            <ion-label>{{ "menu.cart" | translate }}</ion-label>
+          </ion-item>
           <!--Cerrar sesión-->
             <ion-item (click)="logout()" lines="none" detail="false">
               <ion-icon slot="start" name="power"></ion-icon>

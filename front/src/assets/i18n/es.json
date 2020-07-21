@@ -6,7 +6,8 @@
         "edit": "Editar",
         "select": "Seleccione...",
         "accept": "Aceptar",
-        "cancel": "Cancelar"
+        "cancel": "Cancelar",
+        "return": "Volver"
     },
     "menu": {
         "home": "Inicio",
@@ -15,7 +16,8 @@
         "login": "login",
         "route_login": "login",
         "close_sesion": "Cerrar Sesión",
-        "address": "Mis Direcciones"
+        "address": "Mis Direcciones",
+        "cart": "Carrito"
     },
     "routes":{
         "profile": "profile",
@@ -63,6 +65,19 @@
         "email": "Email",
         "update_info": "Actualizar Información",
         "phone": "Teléfono"
+    },
+    "register": {
+        "title": "Registro de clientes",
+        "document": "Documento",
+        "name": "Nombres",
+        "lastname": "Apellidos",
+        "email": "Correo electrónico",
+        "create_account": "Crear cuenta",
+        "phone": "Teléfono celular",
+        "username": "Nombre de usuario",
+        "password": "Contraseña",
+        "confirm_password": "Confirmar contraseña",
+        "term_condition": "Acepto Términos y condiciones"
     },
     "Components":{
         "App":{

@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 
-import { Platform, MenuController, NavController} from '@ionic/angular';
+import { Platform, MenuController, NavController, ModalController} from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { TranslateService } from "@ngx-translate/core";
 import { i18nMessages } from './TranslateLoader';
 import { SERVICES } from "./constants/services";
 import { StorageService } from "./storage.service";
+import { CartModalPage } from './pages/cart-modal/cart-modal.page';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -45,6 +46,7 @@ export class AppComponent implements OnInit {
     private router: Router,
     public storageService: StorageService,
     private navCtrl: NavController,
+    private modalCtrl: ModalController
   ) {
     this.token = localStorage.getItem('token');
     this.initializeApp();
@@ -125,4 +127,13 @@ export class AppComponent implements OnInit {
 
   }
   
+  async openCart(product){
+    let modal = await this.modalCtrl.create({
+      component: CartModalPage,
+      cssClass: 'cart-modal'
+    });
+    modal.present();
+    this.close();
+  }
+
 }

@@ -1,0 +1,148 @@
+<ion-header>
+  <ion-toolbar class="center">
+      <ion-title color="success">{{ "register.title" | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--Este es de guardar-->
+  <div *ngIf="!id_user_add">
+    <form [formGroup]="registerClient" (ngSubmit)="validate_form()" class="form-register">
+      <ion-card>
+        <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-item style="display: flex;">
+                  <ion-label position="floating">{{ "register.name" | translate }}<ion-text color="danger" ></ion-text></ion-label>
+                  <ion-input type="text" formControlName="names"></ion-input>
+                  <ion-icon slot="end" style="z-index: 99" name="alert"
+                    *ngIf="registerClient.get('names').hasError('required') && registerClient.get('names').touched"
+                    color="light" (click)="presentToast('Este campo es requerido')">
+                  </ion-icon>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating">{{ "register.lastname" | translate }}<ion-text color="danger" ></ion-text></ion-label>
+                  <ion-input type="text" formControlName="lastnames"></ion-input>
+                  <ion-icon slot="end" style="z-index: 99" name="alert"
+                    *ngIf="registerClient.get('lastnames').hasError('required') && registerClient.get('lastnames').touched"
+                    color="light" (click)="presentToast('Este campo es requerido')">
+                  </ion-icon>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating">{{ "register.document" | translate }}<ion-text color="danger" ></ion-text></ion-label>
+                  <ion-input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" formControlName="document"></ion-input>
+                  <ion-icon slot="end" style="z-index: 99" name="alert"
+                    *ngIf="registerClient.get('document').hasError('required') && registerClient.get('document').touched"
+                    color="light" (click)="presentToast('Este campo es requerido')">
+                  </ion-icon>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item style="display: flex; width: 100%;">
+                  <ion-label position="floating">{{ "register.email" | translate }}<ion-text color="danger" ></ion-text></ion-label>
+                  <ion-input type="email" formControlName="email"></ion-input>
+                  <ion-icon slot="end" style="z-index: 99" name="alert"
+                    *ngIf="registerClient.get('email').hasError('pattern') && registerClient.get('email').touched"
+                    item-end color="light" (click)="presentToast('La correo debe tener un formato válido ejemplo@ejemplo.com')">
+                  </ion-icon>
+                  <ion-icon slot="end" style="z-index: 99" name="alert"
+                    *ngIf="registerClient.get('email').hasError('required') && registerClient.get('email').touched"
+                    color="light" (click)="presentToast('Este campo es requerido')">
+                  </ion-icon>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating">{{ "register.phone" | translate }}<ion-text color="danger" ></ion-text></ion-label>
+                  <ion-input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="phone" formControlName="phone"></ion-input>
+                  <ion-icon slot="end" style="z-index: 99" name="alert"
+                    *ngIf="registerClient.get('phone').hasError('minlength') && registerClient.get('phone').touched"
+                    color="light" (click)="presentToast('El número debe ser de 10 digitos')">
+                  </ion-icon>
+                  <ion-icon slot="end" style="z-index: 99" name="alert"
+                    *ngIf="registerClient.get('phone').hasError('maxlength') && registerClient.get('phone').touched"
+                    color="light" (click)="presentToast('El número debe ser de 10 digitos')">
+                  </ion-icon>
+                  <ion-icon slot="end" style="z-index: 99" name="alert"
+                    *ngIf="registerClient.get('phone').hasError('required') && registerClient.get('phone').touched"
+                    color="light" (click)="presentToast('Este campo es requerido')">
+                  </ion-icon>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating">{{ "register.username" | translate }}<ion-text color="danger" ></ion-text></ion-label>
+                  <ion-input type="text" formControlName="username"></ion-input>
+                  <ion-icon slot="end" style="z-index: 99" name="alert"
+                    *ngIf="registerClient.get('username').hasError('required') && registerClient.get('username').touched"
+                    color="light" (click)="presentToast('Este campo es requerido')">
+                  </ion-icon>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating">{{ "register.password" | translate }}<ion-text color="danger" ></ion-text></ion-label>
+                  <ion-input type="password" formControlName="password"></ion-input>
+                  <ion-icon slot="end" style="z-index: 99" name="alert"
+                    *ngIf="registerClient.get('password').hasError('required') && registerClient.get('password').touched"
+                    color="light" (click)="presentToast('Este campo es requerido')">
+                  </ion-icon>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating">{{ "register.confirm_password" | translate }}<ion-text color="danger" ></ion-text></ion-label>
+                  <ion-input type="password" formControlName="confirm_password"></ion-input>
+                  <ion-icon slot="end" style="z-index: 99" name="alert"
+                    *ngIf="registerClient.get('confirm_password').hasError('required') && registerClient.get('confirm_password').touched"
+                    color="light" (click)="presentToast('Este campo es requerido')">
+                  </ion-icon>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="1">
+                <div>
+                  <ion-checkbox class="borde" color="primary" slot="start" name="term_condition" formControlName="term_condition"></ion-checkbox>
+                </div>
+              </ion-col>
+              <ion-col size="11">
+                <div>
+                  &nbsp;<a href="#">{{ "register.term_condition" | translate }}</a>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-button type="submit" expand="block" color="success">{{ "register.create_account" | translate }}</ion-button>
+                <ion-button expand="block" color="primary" (click)="returnPage()">{{ "general.return" | translate }}</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+    </form>
+  </div>
+
+</ion-content>
