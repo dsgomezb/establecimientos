@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "524491746006",
+    "firebase_url": "https://establecimientos-1bc19.firebaseio.com",
+    "project_id": "establecimientos-1bc19",
+    "storage_bucket": "establecimientos-1bc19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:524491746006:android:770cbba62f3c87b4a1b777",
+        "android_client_info": {
+          "package_name": "mi.trago.ya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "524491746006-eai13g3kjo6nq5ejtt3llr2spih65oa2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_02rOKxu7t8hH2S8-rwDVpgBI9F_wfBY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "524491746006-eai13g3kjo6nq5ejtt3llr2spih65oa2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

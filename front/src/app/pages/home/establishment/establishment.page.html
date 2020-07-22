@@ -18,20 +18,8 @@
       <ion-icon name="cart" class="cart-icon"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-  
-  <!--<ion-list *ngIf="products">
-    <ion-item *ngFor="let product of products">
-      <ion-label>
-        <h2><b>{{ product.name_product }}</b></h2>
-        <p>{{ product.description_product }}</p>
-        <p>{{ product.name_presentation_product }}</p>
-        <ion-text color="danger"><small>${{ product.value_iva_product }}</small></ion-text>
-      </ion-label>
-    </ion-item>
-  </ion-list>
--->
 
-  <ion-list>
+  <ion-list *ngIf="products2">
     <ion-item *ngFor="let p of products2">
       <ion-label>
         <h2><b>{{ p.name }}</b></h2>

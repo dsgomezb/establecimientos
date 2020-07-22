@@ -15,6 +15,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { IonicSelectableModule } from 'ionic-selectable';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { CartModalPageModule } from './pages/cart-modal/cart-modal.module';
+import { FCM } from '@ionic-native/fcm/ngx';
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -41,7 +42,8 @@ export function createTranslateLoader(http: HttpClient) {
     StatusBar,
     SplashScreen,
     Geolocation,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    FCM
   ],
   bootstrap: [AppComponent]
 })

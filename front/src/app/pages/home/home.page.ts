@@ -3,6 +3,8 @@ import { ToastService } from 'src/app/services/toaster/toast.service';
 import { RequestService } from 'src/app/services/http/request.service';
 import { Platform, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { FCM } from '@ionic-native/fcm/ngx';
+
 
 @Component({
   selector: 'app-home',
@@ -19,12 +21,16 @@ export class HomePage implements OnInit {
     public request: RequestService,
     private toast: ToastService,
     private navCtrl: NavController,
-    public router: Router
+    public router: Router,
+    private fcm: FCM
   ) { 
     this.id_user = localStorage.getItem('user_id');
   }
 
   ngOnInit() {
+    this.fcm.getToken().then(token => {
+      console.log(token);
+    });
   }
 
   ionViewWillEnter(){

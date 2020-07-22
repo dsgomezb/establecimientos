@@ -127,7 +127,7 @@ export class AppComponent implements OnInit {
 
   }
   
-  async openCart(product){
+  async openCart(){
     let modal = await this.modalCtrl.create({
       component: CartModalPage,
       cssClass: 'cart-modal'
